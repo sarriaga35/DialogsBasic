@@ -28,6 +28,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import com.sebas.dialogsbasic.ui.theme.DialogsBasicTheme
@@ -48,29 +49,42 @@ class MainActivity : ComponentActivity() {
     @Composable
     private fun inicialComponible() {
         AlertDialog(
-            modifier = Modifier.padding(16.dp),
+            modifier = Modifier.fillMaxWidth(),
             title = {Text(
                         text = stringResource(R.string.permision),
                         color = MaterialTheme.colorScheme.primary,
                         style = MaterialTheme.typography.titleLarge,
+                        textAlign = TextAlign.Center,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(50.dp)
+
                         )},
-            text = {Text(text = "Papachongo")},
+            text = {Text(
+                text = stringResource(R.string.txt_dialog_permission),
+                color = MaterialTheme.colorScheme.primary,
+                style = MaterialTheme.typography.bodyLarge,
+                modifier = Modifier
+                    .fillMaxWidth()
+
+            )},
             onDismissRequest = { hacerAlgoonDimissRequest() },
             confirmButton = {
                 TextButton(onClick = { hacerAlgoonConfirmation() },
                     elevation = ButtonDefaults.elevatedButtonElevation(2.dp)){
-                    Text(text = "Confirmation")
+                    Text(text = stringResource(R.string.confirmation),
+                        color = MaterialTheme.colorScheme.primary,
+                        style = MaterialTheme.typography.labelSmall
+                    )
                 }
             },
             dismissButton = {
                 TextButton(
                     onClick = { hacerAlgoonDimissRequest() },
                     elevation = ButtonDefaults.elevatedButtonElevation(2.dp) ) {
-                    Text(text = "Dimiss")
-
+                    Text(text = stringResource(R.string.dimiss),
+                        color = MaterialTheme.colorScheme.primary,
+                        style = MaterialTheme.typography.labelSmall
+                    )
                 }
             }
         )

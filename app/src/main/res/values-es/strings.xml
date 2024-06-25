@@ -2,4 +2,7 @@
 <resources>
     <string name="app_name">DialogsBasic</string>
     <string name="permision">Permiso</string>
+    <string name="txt_dialog_permission">Ud es un Papachongo que nos interesa contratar para acciones fuera de lo comun</string>
+    <string name="confirmation">Confirmación</string>
+    <string name="dimiss">Descartar</string>
 </resources>
