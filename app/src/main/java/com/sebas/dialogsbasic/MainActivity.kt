@@ -17,6 +17,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextFieldDefaults
@@ -26,9 +27,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import com.sebas.dialogsbasic.ui.theme.DialogsBasicTheme
+import com.sebas.dialogsbasic.ui.theme.Typography
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,10 +50,12 @@ class MainActivity : ComponentActivity() {
         AlertDialog(
             modifier = Modifier.padding(16.dp),
             title = {Text(
-                        text = "Hola",
+                        text = stringResource(R.string.permision),
+                        color = MaterialTheme.colorScheme.primary,
+                        style = MaterialTheme.typography.titleLarge,
                         modifier = Modifier
-                        .fillMaxWidth()
-                            .height(100.dp)
+                            .fillMaxWidth()
+                            .height(50.dp)
                         )},
             text = {Text(text = "Papachongo")},
             onDismissRequest = { hacerAlgoonDimissRequest() },
