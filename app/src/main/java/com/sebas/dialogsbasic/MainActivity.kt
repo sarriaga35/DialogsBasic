@@ -1,6 +1,9 @@
 package com.sebas.dialogsbasic
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -34,7 +37,10 @@ import androidx.compose.ui.window.Dialog
 import com.sebas.dialogsbasic.ui.theme.DialogsBasicTheme
 import com.sebas.dialogsbasic.ui.theme.Typography
 
+
 class MainActivity : ComponentActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -48,6 +54,7 @@ class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     private fun inicialComponible() {
+        Log.i("hola","AlertDialogo")
         AlertDialog(
             modifier = Modifier.fillMaxWidth(),
             title = {Text(
@@ -69,7 +76,8 @@ class MainActivity : ComponentActivity() {
             )},
             onDismissRequest = { hacerAlgoonDimissRequest() },
             confirmButton = {
-                TextButton(onClick = { hacerAlgoonConfirmation() },
+                TextButton(
+                    onClick = { hacerAlgoonConfirmation() },
                     elevation = ButtonDefaults.elevatedButtonElevation(2.dp)){
                     Text(text = stringResource(R.string.confirmation),
                         color = MaterialTheme.colorScheme.primary,
@@ -89,20 +97,24 @@ class MainActivity : ComponentActivity() {
             }
         )
     }
-}
-
     private fun hacerAlgoonDimissRequest(): () -> Unit {
         return {
-            println("hola Dimiss")
+            Log.i("hola", "Dimiss")
+            Toast.makeText( this,"hola Dimiss", Toast.LENGTH_SHORT).show()
         }
 
     }
     private fun hacerAlgoonConfirmation(): () -> Unit {
         return {
-            println("hola Confirmation")
+            Log.i("hola", "Confirmation")
+            Toast.makeText(this, "hola confirmation", Toast.LENGTH_SHORT).show()
         }
 
     }
+
+}
+
+
 
 
 
