@@ -54,62 +54,7 @@ class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     private fun inicialComponible() {
-        Log.i("hola","AlertDialogo")
-        AlertDialog(
-            modifier = Modifier.fillMaxWidth(),
-            title = {Text(
-                        text = stringResource(R.string.permision),
-                        color = MaterialTheme.colorScheme.primary,
-                        style = MaterialTheme.typography.titleLarge,
-                        textAlign = TextAlign.Center,
-                        modifier = Modifier
-                            .fillMaxWidth()
-
-                        )},
-            text = {Text(
-                text = stringResource(R.string.txt_dialog_permission),
-                color = MaterialTheme.colorScheme.primary,
-                style = MaterialTheme.typography.bodyLarge,
-                modifier = Modifier
-                    .fillMaxWidth()
-
-            )},
-            onDismissRequest = { hacerAlgoonDimissRequest() },
-            confirmButton = {
-                TextButton(
-                    onClick = { hacerAlgoonConfirmation() },
-                    elevation = ButtonDefaults.elevatedButtonElevation(2.dp)){
-                    Text(text = stringResource(R.string.confirmation),
-                        color = MaterialTheme.colorScheme.primary,
-                        style = MaterialTheme.typography.labelSmall
-                    )
-                }
-            },
-            dismissButton = {
-                TextButton(
-                    onClick = { hacerAlgoonDimissRequest() },
-                    elevation = ButtonDefaults.elevatedButtonElevation(2.dp) ) {
-                    Text(text = stringResource(R.string.dimiss),
-                        color = MaterialTheme.colorScheme.primary,
-                        style = MaterialTheme.typography.labelSmall
-                    )
-                }
-            }
-        )
-    }
-    private fun hacerAlgoonDimissRequest(): () -> Unit {
-        return {
-            Log.i("hola", "Dimiss")
-            Toast.makeText( this,"hola Dimiss", Toast.LENGTH_SHORT).show()
-        }
-
-    }
-    private fun hacerAlgoonConfirmation(): () -> Unit {
-        return {
-            Log.i("hola", "Confirmation")
-            Toast.makeText(this, "hola confirmation", Toast.LENGTH_SHORT).show()
-        }
-
+        PermisionDialogo()
     }
 
 }
