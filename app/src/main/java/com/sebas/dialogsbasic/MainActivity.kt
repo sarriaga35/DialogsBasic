@@ -45,9 +45,11 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            DialogsBasicTheme {
-               inicialComponible()
-            }
+DialogsBasicTheme {
+    inicialComponible()
+}
+
+
         }
     }
 

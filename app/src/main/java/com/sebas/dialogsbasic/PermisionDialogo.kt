@@ -1,5 +1,6 @@
 package com.sebas.dialogsbasic
 
+import android.content.Context
 import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,7 +20,7 @@ import androidx.compose.ui.unit.dp
 @Composable
  internal fun PermisionDialogo() {
 
-
+    val context = LocalContext.current
     Log.i("hola","AlertDialogo")
     AlertDialog(
         modifier = Modifier.fillMaxWidth(),
@@ -46,10 +47,10 @@ import androidx.compose.ui.unit.dp
         },
         onDismissRequest = {
             Log.i("hola", "OnDimissRequest")
-            hacerAlgoonDimissRequest() },
+            HacerAlgoonDimissRequest(context) },
         confirmButton = {
             TextButton(
-                onClick = { hacerAlgoonConfirmation() },
+                onClick = { hacerAlgoonConfirmation(context) },
                 elevation = ButtonDefaults.elevatedButtonElevation(2.dp)){
                 Text(text = stringResource(R.string.confirmation),
                     color = MaterialTheme.colorScheme.primary,
@@ -59,7 +60,7 @@ import androidx.compose.ui.unit.dp
         },
         dismissButton = {
             TextButton(
-                onClick = { hacerAlgoonDimissRequest() },
+                onClick = { HacerAlgoonDimissRequest(context)},
                 elevation = ButtonDefaults.elevatedButtonElevation(2.dp) ) {
                 Text(text = stringResource(R.string.dimiss),
                     color = MaterialTheme.colorScheme.primary,
@@ -69,17 +70,17 @@ import androidx.compose.ui.unit.dp
         }
     )
 }
-    @Composable
-    private fun hacerAlgoonDimissRequest() {
-        val context = LocalContext.current
+
+    private fun HacerAlgoonDimissRequest(context: Context) {
+
         Log.i("hola", "Dimiss")
         Toast.makeText( context,"hola Dimiss", Toast.LENGTH_SHORT).show()
     }
 
 
-    @Composable
-    private fun hacerAlgoonConfirmation() {
-        val context = LocalContext.current
+
+    private fun hacerAlgoonConfirmation(context: Context) {
+
         Log.i("hola", "Confirmation")
         Toast.makeText(context, "hola confirmation", Toast.LENGTH_SHORT).show()
     }
